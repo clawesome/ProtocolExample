@@ -2,8 +2,6 @@
 //  AppDelegate.swift
 //  ProtocolExample
 //
-//  Created by Chris Law on 4/9/18.
-//
 
 import UIKit
 
