@@ -1,24 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j9T-eI-bG1">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="GgH-mo-5h7">
+            <objects>
+                <navigationController id="j9T-eI-bG1" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="9hM-iE-DRB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Tzd-MF-baT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ubz-90-7cJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-137" y="34"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ProtocolExample" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oBR-rZ-dqV">
+                                <rect key="frame" x="16" y="290" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="CfQ-Wd-GmU"/>
+                                </constraints>
+                                <state key="normal" title="Push Second View Programatically (Blue)"/>
+                                <connections>
+                                    <action selector="showSecondControllerProgramatically:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7UZ-Az-L2X"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AWJ-Fi-S9N">
+                                <rect key="frame" x="16" y="160" width="343" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="FZI-Ro-xHe"/>
+                                </constraints>
+                                <state key="normal" title="Push Second View with Segue (Red)"/>
+                                <connections>
+                                    <segue destination="Gt2-Vp-s95" kind="show" identifier="ShowSecondControllerSegue" id="wFc-LP-L39"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="oBR-rZ-dqV" firstAttribute="top" secondItem="AWJ-Fi-S9N" secondAttribute="bottom" constant="80" id="ATh-Jc-K77"/>
+                            <constraint firstItem="oBR-rZ-dqV" firstAttribute="width" secondItem="AWJ-Fi-S9N" secondAttribute="width" id="OtL-4i-PpG"/>
+                            <constraint firstItem="AWJ-Fi-S9N" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="96" id="U1o-iW-2FJ"/>
+                            <constraint firstItem="AWJ-Fi-S9N" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="YCC-H6-CQM"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="AWJ-Fi-S9N" secondAttribute="trailing" constant="16" id="v4Q-9X-l9z"/>
+                            <constraint firstItem="oBR-rZ-dqV" firstAttribute="centerX" secondItem="AWJ-Fi-S9N" secondAttribute="centerX" id="yuC-KT-TCr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="0YS-YC-G3W"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="669.60000000000002" y="33.733133433283363"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="OOa-nZ-9jE">
+            <objects>
+                <viewController storyboardIdentifier="SecondViewControllerStoryboardId" id="Gt2-Vp-s95" customClass="SecondViewController" customModule="ProtocolExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YXf-uo-7tF">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4EF-lu-NmX">
+                                <rect key="frame" x="16" y="101" width="343" height="30"/>
+                                <state key="normal" title="no parameters action">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="noParemeterAction:" destination="Gt2-Vp-s95" eventType="touchUpInside" id="44e-l6-kzd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K9X-Zn-2XQ">
+                                <rect key="frame" x="16" y="159" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Bn2-4f-AL4"/>
+                                </constraints>
+                                <state key="normal" title="pass string back action">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="passStringBackAction:" destination="Gt2-Vp-s95" eventType="touchUpInside" id="0YH-yr-D6R"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1F5-Qe-d2m">
+                                <rect key="frame" x="16" y="217" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mdI-cF-aTc"/>
+                                </constraints>
+                                <state key="normal" title="pass string no label action">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="passStringNoLabelAction:" destination="Gt2-Vp-s95" eventType="touchUpInside" id="3NI-qU-oXr"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLt-hs-LOB">
+                                <rect key="frame" x="16" y="275" width="343" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="MPp-dM-MV3"/>
+                                </constraints>
+                                <state key="normal" title="pass string and dictionary action">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="passStringAndDictionaryAction:" destination="Gt2-Vp-s95" eventType="touchUpInside" id="qYh-bu-4hU"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="4EF-lu-NmX" firstAttribute="leading" secondItem="yU6-uO-8Os" secondAttribute="leading" constant="16" id="5cE-yc-7IG"/>
+                            <constraint firstItem="qLt-hs-LOB" firstAttribute="top" secondItem="1F5-Qe-d2m" secondAttribute="bottom" constant="28" id="7Fk-lU-qWs"/>
+                            <constraint firstItem="1F5-Qe-d2m" firstAttribute="trailing" secondItem="K9X-Zn-2XQ" secondAttribute="trailing" id="Fcc-TX-V1y"/>
+                            <constraint firstItem="1F5-Qe-d2m" firstAttribute="top" secondItem="K9X-Zn-2XQ" secondAttribute="bottom" constant="28" id="Od7-DM-MV8"/>
+                            <constraint firstItem="K9X-Zn-2XQ" firstAttribute="top" secondItem="4EF-lu-NmX" secondAttribute="bottom" constant="28" id="g5g-u9-Tgs"/>
+                            <constraint firstItem="K9X-Zn-2XQ" firstAttribute="trailing" secondItem="4EF-lu-NmX" secondAttribute="trailing" id="r5T-kc-DEy"/>
+                            <constraint firstItem="yU6-uO-8Os" firstAttribute="trailing" secondItem="4EF-lu-NmX" secondAttribute="trailing" constant="16" id="rP8-xZ-MgS"/>
+                            <constraint firstItem="4EF-lu-NmX" firstAttribute="top" secondItem="yU6-uO-8Os" secondAttribute="top" constant="37" id="tCX-57-3xy"/>
+                            <constraint firstItem="1F5-Qe-d2m" firstAttribute="leading" secondItem="K9X-Zn-2XQ" secondAttribute="leading" id="uMs-Uo-QEX"/>
+                            <constraint firstItem="qLt-hs-LOB" firstAttribute="leading" secondItem="1F5-Qe-d2m" secondAttribute="leading" id="v77-vx-OoA"/>
+                            <constraint firstItem="K9X-Zn-2XQ" firstAttribute="leading" secondItem="4EF-lu-NmX" secondAttribute="leading" id="wd8-nz-PDM"/>
+                            <constraint firstItem="qLt-hs-LOB" firstAttribute="trailing" secondItem="1F5-Qe-d2m" secondAttribute="trailing" id="yKk-qf-XUp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yU6-uO-8Os"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gei-Od-ajK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1525.5999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
 </document>
